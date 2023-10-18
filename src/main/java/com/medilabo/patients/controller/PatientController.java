@@ -5,13 +5,11 @@ import com.medilabo.patients.service.PatientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/patients")
 public class PatientController {
 
     @Autowired
@@ -19,12 +17,12 @@ public class PatientController {
 
     private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
 
-    @GetMapping
+    @GetMapping("/patients")
     public List<Patient> getPatients () {
         return patientService.getAllPatients();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/patients/{id}")
     public Patient getPatientById(@PathVariable(value = "id") Integer id) {
         return patientService.getPatientById(id);
     }
@@ -34,12 +32,12 @@ public class PatientController {
         return patientService.addPatient(patient);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/patients/{id}")
     public Patient updatePatient(@PathVariable(value = "id") Integer id) {
         return patientService.updatePatient(patientService.getPatientById(id));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/patients/{id}")
     public void deletePatient(@PathVariable(value = "id") Integer id) {
         patientService.deletePatient(patientService.getPatientById(id));
 
