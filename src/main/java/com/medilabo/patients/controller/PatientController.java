@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class PatientController {
 
     @Autowired
@@ -27,7 +28,7 @@ public class PatientController {
         return patientService.getPatientById(id);
     }
 
-    @PostMapping
+    @PostMapping("/patients")
     public Patient addPatient(@ModelAttribute("patient") Patient patient) {
         return patientService.addPatient(patient);
     }
