@@ -1,6 +1,8 @@
 package com.medilabo.patients.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
@@ -12,10 +14,13 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPatient;
 
+    @NotBlank
     private String nom;
 
+    @NotBlank
     private String prenom;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Genre genre;
 
