@@ -35,14 +35,15 @@ public class PatientController {
         return patientService.addPatient(patient);
     }
 
-    @PostMapping("/patients/{id}")
-    public Patient updatePatient(@PathVariable(value = "id") Integer id, @Valid @ModelAttribute("patient") Patient patient) {
+    @PostMapping("/patients/{id}/update")
+    public Patient updatePatient(@RequestBody Patient patient, @PathVariable(value = "id") Integer id) {
         patient.setIdPatient(id);
         return patientService.updatePatient(patient);
     }
 
-    @DeleteMapping("/patients/{id}")
+    @PostMapping("/patients/{id}/delete")
     public void deletePatient(@PathVariable(value = "id") Integer id) {
+        logger.info("Deleting patient n°"+id);
         patientService.deletePatient(patientService.getPatientById(id));
 
     }
