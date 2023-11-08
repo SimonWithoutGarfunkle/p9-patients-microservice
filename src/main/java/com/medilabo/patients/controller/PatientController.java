@@ -30,7 +30,8 @@ public class PatientController {
     }
 
     @PostMapping("/patients")
-    public Patient addPatient(@Valid @ModelAttribute("patient") Patient patient) {
+    public Patient addPatient(@RequestBody Patient patient) {
+        logger.info("patient : "+patient.getPrenom()+" "+patient.getNom());
         return patientService.addPatient(patient);
     }
 
