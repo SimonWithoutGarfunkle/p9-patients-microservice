@@ -1,7 +1,7 @@
 DELETE FROM patient;
 ALTER TABLE patient AUTO_INCREMENT = 1;
 
-INSERT INTO patient (nom, prenom, genre, adresse, telephone)
+INSERT INTO patient (nom, prenom, genre, rue, telephone)
 VALUES
     ('TestNone', 'Test', 'FEMME', '1 Brookside St', '100-222-3333'),
     ('TestBorderline', 'Test', 'HOMME', '2 High St', '200-333-4444'),
