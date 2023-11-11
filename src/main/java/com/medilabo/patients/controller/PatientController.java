@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/patients")
 public class PatientController {
 
     @Autowired
@@ -19,29 +19,29 @@ public class PatientController {
 
     private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
 
-    @GetMapping("/patients")
+    @GetMapping
     public List<Patient> getPatients () {
         return patientService.getAllPatients();
     }
 
-    @GetMapping("/patients/{id}")
+    @GetMapping("/{id}")
     public Patient getPatientById(@PathVariable(value = "id") Integer id) {
         return patientService.getPatientById(id);
     }
 
-    @PostMapping("/patients")
+    @PostMapping
     public Patient addPatient(@RequestBody Patient patient) {
         logger.info("patient : "+patient.getPrenom()+" "+patient.getNom());
         return patientService.addPatient(patient);
     }
 
-    @PostMapping("/patients/{id}/update")
+    @PostMapping("/{id}/update")
     public Patient updatePatient(@RequestBody Patient patient, @PathVariable(value = "id") Integer id) {
         patient.setIdPatient(id);
         return patientService.updatePatient(patient);
     }
 
-    @PostMapping("/patients/{id}/delete")
+    @PostMapping("/{id}/delete")
     public void deletePatient(@PathVariable(value = "id") Integer id) {
         logger.info("Deleting patient n°"+id);
         patientService.deletePatient(patientService.getPatientById(id));
