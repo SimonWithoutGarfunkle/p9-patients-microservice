@@ -26,11 +26,21 @@ public class Patient {
 
     private String rue;
 
+    private String dateNaissance;
+
     private String codePostal;
 
     private String ville;
 
     private String telephone;
+
+    public String getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDate(String date) {
+        this.dateNaissance = date;
+    }
 
     public String getRue() {
         return rue;

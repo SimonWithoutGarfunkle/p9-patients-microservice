@@ -28,6 +28,13 @@ public class PatientsApplication {
 		SpringApplication.run(PatientsApplication.class, args);
 	}
 
+	/**
+	 * Inject the data.sql file in the patient database to get some examples for the demo
+	 * The SQL file delete all data from the base and add 4 sample patients
+	 *
+	 * @throws SQLException
+	 * @throws IOException
+	 */
 	@PostConstruct
 	public void initializeDatabase() throws SQLException, IOException {
 		Resource resource = applicationContext.getResource("classpath:data.sql");
