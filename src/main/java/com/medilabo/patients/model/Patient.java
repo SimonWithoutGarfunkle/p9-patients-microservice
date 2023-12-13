@@ -34,6 +34,7 @@ public class Patient {
 
     private String rue;
 
+    @NotNull
     private String dateNaissance;
 
     private String codePostal;
